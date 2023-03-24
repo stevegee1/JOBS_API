@@ -1,6 +1,9 @@
 const mongoose= require("mongoose")
 
 const appSchema = new mongoose.Schema({
-    name: String
+    name: {
+        type: String,
+        required: [true, "name field is required"]
+    }
 })
 module.exports= mongoose.model("JobbingAPI", appSchema)
