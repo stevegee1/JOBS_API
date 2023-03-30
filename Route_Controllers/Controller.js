@@ -57,6 +57,19 @@ const updateOperator = async(req, res)=>{
   } 
 }
 const deleteOperator = async (req, res) => {
-  
-};
+  const {id}= req.params
+  console.log(req.params)
+  console.log(id, "x")
+  //const query= req.body
+  try {
+    
+  const updatedItem = await appModel.findOneAndDelete({_id:id});
+  res.status(200).json({"Success": updatedItem})
+ 
+  } catch (error) {
+    next(error)
+  } 
+}
+
+;
 module.exports = {createOperator,readAllOperator,readOneOperator,updateOperator,deleteOperator};
